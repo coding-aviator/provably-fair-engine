@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  trust-engine:
+    build: .
+    container_name: provably-fair-trust-engine
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=False
+    volumes:
+      - ./data:/app/data
+    env_file:
+      - .env
